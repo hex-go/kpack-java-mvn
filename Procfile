@@ -1,0 +1,1 @@
+web: cd target/agent && bash ./start.sh icossense-pull-schedule-default.conf

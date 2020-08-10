@@ -1,0 +1,8 @@
+{
+	"maxEventLoopExecuteTime": 2000000000,
+	"maxWorkerExecuteTime": 60000000000,
+	"eventbus": {
+		"clustered": false
+	},
+	"warningExceptionTime": 5000000000
+}

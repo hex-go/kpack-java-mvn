@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<Configuration status="WARN" shutdownHook="disable">
+	
+	<Appenders>
+		<RollingFile name="stdout" fileName="/app/log/server.log" filePattern="/app/log/server-%i.log">
+	    	<PatternLayout pattern="%d %c [%t] (%F:%L) %-5p %X{requestId,requestRemoteAddress,requestUri,requestHttpMethod,requestHeader.User-Agent} --> %m%n"/>
+	    	<Policies>
+	    		<SizeBasedTriggeringPolicy size="10MB"/>
+	    	</Policies>
+	    	<DefaultRolloverStrategy max="10"/>
+	    </RollingFile>
+	</Appenders>
+
+	<Loggers>
+		<Logger name="org.apache.kafka.common" level="info"/>
+		<Logger name="org.apache.kafka.clients" level="info"/>
+		<Logger name="io.advantageous.qbit.service.health" level="info"/>
+		<Logger name="io.advantageous.qbit.vertx.http" level="info"/>
+		<Logger name="io.advantageous.qbit.metrics.StatServiceImpl" level="info"/>
+		<Logger name="io.advantageous.qbit.service.impl.ServiceQueueImpl" level="info"/>
+		<Logger name="io.advantageous.qbit.http.server.impl.SimpleHttpServer" level="info"/>
+		
+		
+		<Root level="debug">
+			<AppenderRef ref="stdout"/>
+		</Root>
+	</Loggers>
+	
+</Configuration>

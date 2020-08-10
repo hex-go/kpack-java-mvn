@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<Configuration status="WARN">
+	
+	<Appenders>
+		<RollingRandomAccessFile name="stdout" immediateFlush="false" append="true" fileName="/app/log/server.log" filePattern="/app/log/server-%i.log">
+	    	<PatternLayout pattern="%d %c [%t] (%F:%L) %-5p --> %m%n"/>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10MB"/>
+			</Policies>
+			<DefaultRolloverStrategy max="10"/>
+		</RollingRandomAccessFile>
+	</Appenders>
+
+	<Loggers>
+		<AsyncLogger name="org.apache.kafka.common" level="info" includeLocation="true" />
+		<AsyncLogger name="org.apache.kafka.clients" level="info" includeLocation="true" />
+		<AsyncLogger name="io.advantageous.qbit.service.health" level="info" includeLocation="true" />
+		<AsyncLogger name="io.advantageous.qbit.vertx.http" level="info" includeLocation="true" />
+		<AsyncLogger name="io.advantageous.qbit.metrics.StatServiceImpl" level="info" includeLocation="true" />
+		<AsyncLogger name="io.advantageous.qbit.service.impl.ServiceQueueImpl" level="info" includeLocation="true" />
+		<AsyncLogger name="io.advantageous.qbit.http.server.impl.SimpleHttpServer" level="info" includeLocation="true" />
+		
+		<AsyncRoot level="debug" includeLocation="true">
+			<AppenderRef ref="stdout"/>
+		</AsyncRoot>
+	</Loggers>
+	
+</Configuration>
